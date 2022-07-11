@@ -1,0 +1,23 @@
+name: react-gather
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 17.x
+      - name: Build Project
+        run: |
+          npm install
+          npm run build
+      - name: Deploy to Github
+        uses: JamesIves/github-pages-deploy-action@v4.3.4
+        with:
+          folder: dist

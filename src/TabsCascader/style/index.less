@@ -1,0 +1,70 @@
+@import '../../../node_modules/antd/es/style/themes/default.less';
+
+@prefix: ~'react-gather';
+
+.@{prefix} {
+  &-popupBox {
+    padding: 2px 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &-ant-tag {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 2px 5px;
+    overflow: hidden;
+  }
+
+
+  &-ant-tag-title {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  &-no-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-overflow {
+    position: relative;
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  &-item {
+    width: 100%;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &-active,
+    &:hover {
+      background: @primary-1;
+    }
+
+    &-icon {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 10px;
+    }
+
+    &-label {
+      flex: 1;
+      padding: 5px 10px;
+      & > span {
+        max-width: 100%;
+        word-break: break-all;
+      }
+    }
+  }
+  
+}

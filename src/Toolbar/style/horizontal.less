@@ -1,0 +1,191 @@
+
+@react-gather-prefix: 'react-gather';
+
+@toolbar-prefix-cls: ~'@{react-gather-prefix}-toolbar-horizontal';
+
+.@{toolbar-prefix-cls} {
+  width: 28px;
+  height: auto;
+  margin: 0;
+  padding: 2px;
+  overflow: hidden;
+
+  &-content-extras,
+  &-item-icon,
+  &-item-text {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-content-extras {
+    align-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  &-group {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    &::before {
+      align-self: center;
+      width: 60%;
+      height: 1px;
+      margin: 6px 0px;
+      background-color: rgba(0, 0, 0, 0.15);
+      content: ' ';
+      pointer-events: none;
+    }
+
+    &:first-child::before {
+      content: none;
+    }
+  }
+
+  &-dividingLine{
+    &::before {
+      content: none;
+    }
+  }
+
+  &-item {
+    align-content: center;
+    align-items: center;
+    margin: 4px 2px 4px 2px;
+    padding: 5px;
+    color: #595959;
+    background-color: transparent;
+    border: 1px solid #595959;
+    border-radius: 2px;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    user-select: none;
+
+    &.@{toolbar-prefix-cls}-item-hidden {
+      display: none;
+    }
+
+    &.@{toolbar-prefix-cls}-item-disabled,
+    &.@{toolbar-prefix-cls}-item-disabled:hover {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+
+    &.@{toolbar-prefix-cls}-item-disabled
+      .@{toolbar-prefix-cls}-item-icon
+      &:active {
+      transform: none;
+    }
+  }
+
+  &-item-icon,
+  &-item-text {
+    align-content: center;
+    align-items: center;
+  }
+
+  &-item-icon {
+    font-size: 14px;
+    transition: transform 50ms ease;
+
+    &:active {
+      transform: scale(1.272019649);
+    }
+  }
+
+  &-item-text {
+    font-size: 12px;
+  }
+
+  &&-hover-effect {
+    .@{toolbar-prefix-cls}-item {
+      margin: 2px 0px;
+      color: #595959;
+    }
+  }
+
+  &&-hover-effect &-item-disabled&-item:hover {
+    color: #595959;
+    background-color: transparent;
+
+  }
+
+  &-item&-item-active,
+  &&-hover-effect &-item&-item-active,
+  &&-hover-effect &-item:hover {
+    color: white;
+    background-color: #1E54D6;
+  }
+
+  &-item&-item-active {
+    margin: 4px 0;
+  }
+
+  &&-big {
+    width: 32px;
+
+    .@{toolbar-prefix-cls}-content-extras {
+      font-size: 16px;
+    }
+
+    .@{toolbar-prefix-cls}-item {
+        padding: 10px;
+        border-radius: 3px;
+    }
+
+    .@{toolbar-prefix-cls}-item-text {
+      font-size: 14px;
+    }
+
+    .@{toolbar-prefix-cls}-item-icon {
+      font-size: 16px;
+    }
+  }
+
+  &&-hover-effect&-big {
+    width: 40px;
+
+    .@{toolbar-prefix-cls}-item {
+      padding: 10px;
+    }
+  }
+
+  &&-small {
+    width: 24px;
+
+    .@{toolbar-prefix-cls}-content-extras {
+      font-size: 12px;
+    }
+
+    .@{toolbar-prefix-cls}-item {
+      padding: 0 3px;
+    }
+
+    .@{toolbar-prefix-cls}-item-text {
+      font-size: 10px;
+    }
+
+    .@{toolbar-prefix-cls}-item-icon {
+      font-size: 12px;
+    }
+
+    .@{toolbar-prefix-cls}-item.@{toolbar-prefix-cls}-item-active {
+      margin: 2px 0;
+    }
+  }
+
+  &&-hover-effect&-small {
+    width: 24px;
+
+    .@{toolbar-prefix-cls}-item {
+      margin: 2px;
+      padding: 2px;
+    }
+
+    .@{toolbar-prefix-cls}-item.@{toolbar-prefix-cls}-item-active {
+      margin: 2px;
+    }
+  }
+}
