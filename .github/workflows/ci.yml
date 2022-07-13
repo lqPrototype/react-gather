@@ -4,20 +4,26 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  Codecov:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-10.14]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
+      - uses: actions/checkout@master
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
-      - name: Build Project
-        run: |
-          yarn install
-          yarn run build
-      - name: Deploy to Github
-        uses: JamesIves/github-pages-deploy-action@v4.3.4
+      - run: yarn install
+      - run: yarn run test
+      - run: yarn run test:coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3.1.0
         with:
-          folder: dist
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage
+          files: ./clover.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true

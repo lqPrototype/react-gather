@@ -1,3 +1,1 @@
 # react-gather
-
-## Getting Started
