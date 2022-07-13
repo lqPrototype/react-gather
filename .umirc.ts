@@ -19,8 +19,8 @@ export default defineConfig({
       path: 'https://github.com/umijs/dumi',
     },
   ],
-  base: '/',
-  publicPath: '/',
+  base: `/${repo}`,
+  publicPath: `/${repo}`,
   hash: true,
   metas: [
     {
